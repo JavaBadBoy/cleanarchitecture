@@ -16,4 +16,9 @@ public class AddEmployeeRequestBuilder implements RequestBuilder {
         request.employeeName = name;
         return this;
     }
+
+    public AddEmployeeRequestBuilder withId(long id) {
+        request.employeeId = id;
+        return this;
+    }
 }

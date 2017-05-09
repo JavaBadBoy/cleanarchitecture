@@ -23,10 +23,10 @@ public class AddEmployeeInteractor extends UseCaseInteractor<AddEmployeeRequest,
 
     public AddEmployeeResponse execute(AddEmployeeRequest input) {
 
-        EmployeeModel employeeModel = new EmployeeModel(1L,"Mousa");
+        EmployeeModel employeeModel = new EmployeeModel(input.employeeId,input.employeeName);
         repository.save(employeeModel);
-
         employeeModel.view(builder);
-        return new AddEmployeeResponseBuilder().withId(builder.build().id).build();
+
+        return new AddEmployeeResponseBuilder().withId(builder.build().id).withName(builder.build().name).build();
     }
 }

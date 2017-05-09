@@ -13,4 +13,9 @@ public class AddEmployeeResponseBuilder {
        response.id=id;
         return this;
     }
+
+    public AddEmployeeResponseBuilder withName(String name) {
+        response.name=name;
+        return this;
+    }
 }

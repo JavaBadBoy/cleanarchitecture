@@ -5,12 +5,12 @@ import e7.cleancode.app.adapters.*;
 import e7.cleancode.app.datastructures.AddEmployeeRequest;
 import e7.cleancode.app.interactors.AddEmployeeInteractor;
 
-public class EmployeeController implements UseCaseController {
+public class EmployeeController implements UseCaseController<AddEmployeeInteractor,AddEmployeeRequest> {
 
     private final RequestBuilder requestBuilder;
     private final UseCaseInteractorFactory interactorFactory;
 
-    public EmployeeController(AddEmployeeRequestBuilder requestBuilder, Repository repository) {
+    public EmployeeController(RequestBuilder requestBuilder, Repository repository) {
 
        this.requestBuilder = requestBuilder;
         interactorFactory = new AddEmployeeInteractorFactory(repository);

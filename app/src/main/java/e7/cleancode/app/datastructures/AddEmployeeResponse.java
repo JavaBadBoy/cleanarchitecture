@@ -5,4 +5,5 @@ import e7.cleancode.app.adapters.Datastructure;
 
 public class AddEmployeeResponse extends Datastructure {
     public long id;
+    public String name;
 }
