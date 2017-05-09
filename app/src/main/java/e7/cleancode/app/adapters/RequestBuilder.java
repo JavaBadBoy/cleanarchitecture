@@ -1,5 +1,7 @@
 package e7.cleancode.app.adapters;
 
-public interface RequestBuilder {
-    Datastructure build();
+import e7.cleancode.app.adapters.builders.BasicDatastructureBuilder;
+
+public interface RequestBuilder extends BasicDatastructureBuilder {
+
 }

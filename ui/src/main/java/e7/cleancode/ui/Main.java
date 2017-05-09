@@ -14,8 +14,12 @@ public class Main {
     public static void main(String[] args) {
         AddEmployeeRequestBuilder requestBuilder = new AddEmployeeRequestBuilder().withName("Mousa");
         EmployeeController controller = new EmployeeController(requestBuilder,new InMemoryRepository());
-        AddEmployeeResponse response = controller.makeInteractor().execute(controller.buildRequest());
-        System.out.println(response.id);
+        try {
+            AddEmployeeResponse response = controller.makeInteractor().execute(controller.buildRequest());
+            System.out.println(response.id);
+        }catch (Exception e){
+            System.out.println(e);
+        }
 
 
         UpdateEmployeeController updateEmployeeController = new UpdateEmployeeController(new UpdateEmployeeRequestBuilder(),new InMemoryRepository());

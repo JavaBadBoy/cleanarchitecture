@@ -1,10 +1,10 @@
 package e7.cleancode.app.interactors;
 
 
+import e7.cleancode.app.adapters.BusinessModel;
 import e7.cleancode.app.adapters.Repository;
 import e7.cleancode.app.adapters.UseCaseInteractor;
-import e7.cleancode.app.adapters.builders.EmployeeModelView;
-import e7.cleancode.app.adapters.builders.EmployeeModelViewBuilder;
+import e7.cleancode.app.models.modelviews.EmployeeModelViewBuilder;
 import e7.cleancode.app.datastructures.AddEmployeeRequest;
 import e7.cleancode.app.datastructures.AddEmployeeResponse;
 import e7.cleancode.app.datastructures.AddEmployeeResponseBuilder;
@@ -14,6 +14,7 @@ public class AddEmployeeInteractor extends UseCaseInteractor<AddEmployeeRequest,
 
 
     private Repository repository;
+    private final EmployeeModelViewBuilder builder = new EmployeeModelViewBuilder();
 
     public AddEmployeeInteractor(Repository repository) {
 
@@ -23,10 +24,9 @@ public class AddEmployeeInteractor extends UseCaseInteractor<AddEmployeeRequest,
     public AddEmployeeResponse execute(AddEmployeeRequest input) {
 
         EmployeeModel employeeModel = new EmployeeModel(1L,"Mousa");
-        EmployeeModelViewBuilder builder = new EmployeeModelViewBuilder();
-        employeeModel.view(builder);
-        EmployeeModelView view = builder.build();
+        repository.save(employeeModel);
 
-        return new AddEmployeeResponseBuilder().withId(view.id).build();
+        employeeModel.view(builder);
+        return new AddEmployeeResponseBuilder().withId(builder.build().id).build();
     }
 }

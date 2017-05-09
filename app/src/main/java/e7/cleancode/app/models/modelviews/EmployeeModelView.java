@@ -1,4 +1,4 @@
-package e7.cleancode.app.adapters.builders;
+package e7.cleancode.app.models.modelviews;
 
 import e7.cleancode.app.adapters.Datastructure;
 
