@@ -1,4 +1,4 @@
-package e7.cleancode.app.adapters;
+package e7.cleancode.app.adapters.datastructure;
 
 import e7.cleancode.app.adapters.builders.BasicDatastructureBuilder;
 
