@@ -10,7 +10,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        DefaultAddEmployeeRequestBuilder requestBuilder = new AddEmployeeRequestBuilder().withId(-1L).withName("Mousa");
+        DefaultAddEmployeeRequestBuilder requestBuilder = new AddEmployeeRequestBuilder().withId(1L).withName("Mousa");
         AddEmployeeController controller = new AddEmployeeController(requestBuilder,new InMemoryRepository());
         try {
             AddEmployeeResponse response = controller.makeInteractor().execute(controller.buildRequest());

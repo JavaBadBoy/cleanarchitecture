@@ -12,7 +12,7 @@ public class EmployeeModel extends BusinessModel<BasicEmployeeModelViewBuilder> 
     private  String name;
 
     public EmployeeModel(long id, String name) {
-
+        validator = new Validator();
 
         if(id <0)
             throw new EmployeeModelInvalidIdRuntimeException();
@@ -32,5 +32,8 @@ public class EmployeeModel extends BusinessModel<BasicEmployeeModelViewBuilder> 
     }
 
     private class EmployeeModelInvalidEmployeeNameRuntimeException extends RuntimeException {
+    }
+
+    private class Validator implements ModelValidator{
     }
 }
